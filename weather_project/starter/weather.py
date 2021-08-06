@@ -17,6 +17,9 @@ def format_temperature(temp):
 
 
 def convert_date(iso_string):
+    dt = datetime.strptime(iso_string,'%Y-%m-%dT%H:%M:%S%z')
+    date = dt.strftime("%A %d %B %Y")
+    return date
     """Converts and ISO formatted date into a human readable format.
 
     Args:
@@ -24,10 +27,10 @@ def convert_date(iso_string):
     Returns:
         A date formatted like: Weekday Date Month Year e.g. Tuesday 06 July 2021
     """
-    pass
-
 
 def convert_f_to_c(temp_in_farenheit):
+    heat = ((float(temp_in_farenheit) - 32)/1.8,".1f") 
+    return heat
     """Converts an temperature from farenheit to celcius.
 
     Args:
@@ -35,10 +38,16 @@ def convert_f_to_c(temp_in_farenheit):
     Returns:
         A float representing a temperature in degrees celcius, rounded to 1dp.
     """
-    pass
-
-
+ 
 def calculate_mean(weather_data):
+    addition = 0
+    for temp in weather_data:
+        #temp = 49
+        #temp = 57
+        #addition variable does not exist
+        addition = (addition +  temp)
+    print (addition/int(len(weather_data)))  
+
     """Calculates the mean value from a list of numbers.
 
     Args:
@@ -46,10 +55,20 @@ def calculate_mean(weather_data):
     Returns:
         A float representing the mean value.
     """
-    pass
-
-
+    
 def load_data_from_csv(csv_file):
+    def load_data_from_csv(csv_file):
+        data = []
+    with open(csv_file) as file:
+        reader = csv.reader(file)
+        next(reader)
+        for line in reader:
+            if line != []:
+                data.append(line [1])
+    print(data)
+    return data
+# need to make int line.  
+    # print (csv_file)
     """Reads a csv file and stores the data in a list.
 
     Args:
@@ -59,8 +78,16 @@ def load_data_from_csv(csv_file):
     """
     pass
 
-
 def find_min(weather_data):
+    # low: weather_data.index(min(weather_data))
+    min_value = min(weather_data)
+    if weather_data.count(min_value) > 1:
+        return [i for i, x in enumerate(weather_data) if x == min(weather_data)]
+    else:
+        position = weather_data.index(min(weather_data))
+        return (f"({min_value}, {position})"),".1f"
+
+
     """Calculates the minimum value in a list of numbers.
 
     Args:

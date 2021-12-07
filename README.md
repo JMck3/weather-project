@@ -6,9 +6,9 @@ Weather Project Submission 7 August 2021
 
 Name: Jennifer McKeering
 
-Link to Github https://github.com/JMck3/weather-project/tree/main
+Everyday we collect data about the weather in order to predict the forecast for the coming days. The problem is that this data is never in a human readable format, that’s where you come in! Your task is to process csv files containing data about the weather, and convert them into meaningful text-based summaries.
 
-In this assignment the goal was to ensure that all test results were 'OK' prior to submission.  
+Link to Github https://github.com/JMck3/weather-project/tree/main 
 
 Screenshot of completed successful tests in Powershell:
 <br>
